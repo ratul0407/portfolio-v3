@@ -1,14 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 @import "tailwindcss";
 
 @theme {
   --font-canela: var(--font-canela);
-  --font-montserrat: "Montserrat", sans-serif;
+  --font-ppNeueMontreal: var(--font-ppNeueMontreal);
 }
 
 body {
-  font-family: var(--font-montserrat);
+  font-family: var(--font-ppNeueMontreal);
 }
 
 ::-webkit-scrollbar {
