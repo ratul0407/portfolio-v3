@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "PlantLife",
+      "description": "PlantLife is a modern e-commerce web application focused on delivering a smooth and visually engaging shopping experience for the users and as well as a proper dashboard for the admin to manage the products and orders.",
+      "link": "https://plantlife-client.vercel.app",
+      "technologies": {
+        "frontend": [
+          "React",
+          "TypeScript",
+          "Redux",
+          "ShadCN",
+          "GSAP",
+          "Framer Motion"
+        ],
+        "backend": ["Node.js", "Express.js", "Mongoose", "Stripe", "Cloudinary"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "EParcel",
+      "description": "EParcel is a Parcel tracking system with real time map updates and status updates with payment gateways and notifications.",
+      "link": "https://parcel-delivery-frontend.vercel.app",
+      "technologies": {
+        "frontend": ["React", "TypeScript", "Redux", "ShadCN"],
+        "backend": ["Node.js", "Express.js", "Mongoose", "Open Street Map"]
+      }
+    }
+  ]
+}
