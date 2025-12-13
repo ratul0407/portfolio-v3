@@ -30,7 +30,9 @@ export default function ScrollProgress() {
         const progressPercentage = Math.round(self.progress * 100);
 
         // Update the percentage text
-        percentageText.textContent = `${progressPercentage}%`;
+        (
+          percentageText as { textContent: string }
+        ).textContent = `${progressPercentage}%`;
       },
     });
 

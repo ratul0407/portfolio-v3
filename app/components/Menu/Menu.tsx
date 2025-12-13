@@ -6,6 +6,14 @@ import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/CustomEase";
 import "./index.css"; // Import the minimal CSS file
 import Image from "next/image";
+import flash1Img from "../../assets/flash-images/flash1.png";
+import flash2Img from "../../assets/flash-images/flash2.png";
+import flash3Img from "../../assets/flash-images/flash3.png";
+import flash4Img from "../../assets/flash-images/flash4.png";
+import flash5Img from "../../assets/flash-images/flash5.png";
+import flash6Img from "../../assets/flash-images/flash6.png";
+import flash7Img from "../../assets/flash-images/flash7.png";
+import flash8Img from "../../assets/flash-images/flash8.png";
 
 gsap.registerPlugin(CustomEase);
 
@@ -14,7 +22,20 @@ CustomEase.create(
   "hop",
   "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1"
 );
+const imageSources = [
+  flash1Img,
+  flash2Img,
+  flash3Img,
+  flash4Img,
+  flash5Img,
+  flash6Img,
+  flash7Img,
+  flash8Img,
+];
 
+// Configuration for Next.js Image Component
+const IMAGE_WIDTH = 500;
+const IMAGE_HEIGHT = 300;
 const Menu = () => {
   const container = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -105,15 +126,6 @@ const Menu = () => {
     },
     { scope: container, dependencies: [isMenuOpen] }
   );
-  const imageSources = [
-    "https://images.unsplash.com/photo-1764970692776-ce5fb30a7509?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDN8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D", // Replace with your actual image paths
-    "https://images.unsplash.com/photo-1764248896275-4596aa5f814b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDd8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1764712755002-ce3400921a7c?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIwfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D",
-  ];
-
-  // Configuration for Next.js Image Component
-  const IMAGE_WIDTH = 500;
-  const IMAGE_HEIGHT = 300;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -215,7 +227,7 @@ const Menu = () => {
                 alt="Cycling project preview image"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className="w-full h-full object-cover transition-opacity duration-300"
+                className="w-full h-full object-cover brightness-100 duration-300"
                 priority={currentImageIndex === 0} // Prioritize loading the first image
               />
             </div>

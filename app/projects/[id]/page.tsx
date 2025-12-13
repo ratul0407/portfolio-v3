@@ -29,9 +29,12 @@ const PlantLifePage = () => {
 
   const slug = pathname?.split("/").pop(); // safer than [2]
   console.log(slug);
-  const { name, description, link, technologies, id } =
-    projectsData.projects.find((p: IProject) => slugify(p.name) === slug);
+  const project = projectsData.projects.find(
+    (p: IProject) => slugify(p.name) === slug
+  );
 
+  if (!project) return;
+  const { name, description, link, technologies, id } = project;
   useGSAP(() => {
     return new SplitText(".description", {
       type: "lines",
