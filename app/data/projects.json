@@ -17,7 +17,7 @@
       "link": "https://parcel-delivery-frontend.vercel.app",
       "technologies": {
         "frontend": ["React", "Redux", "ShadCN"],
-        "backend": ["Node.js", "Express.js", "Mongoose", "Open Street Map"]
+        "backend": ["Node.js", "Express.js", "Mongoose", "Leaflet"]
       }
     }
   ]

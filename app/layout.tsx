@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import { ReactLenis } from "./utils/lenis";
 import FollowMouse from "./components/shared/FollowMouse";
 import localFont from "next/font/local";
+import Menu from "./components/Menu/Menu";
 const canela = localFont({
   src: [
     {
@@ -76,12 +77,13 @@ export default function RootLayout({
       <ReactLenis root>
         <ViewTransitions>
           <body
-            className={`antialiased bg-white ${canela.variable} ${ppNeueMontreal.variable}`}
+            className={`antialiased bg-white relative ${canela.variable} ${ppNeueMontreal.variable}`}
           >
             <FollowMouse />
             {/* <ScrollProgress /> */}
-            <Navbar />
-            {children}
+            {/* <Navbar /> */}
+            <Menu />
+            <div className="pt-20">{children}</div>
           </body>
         </ViewTransitions>
       </ReactLenis>

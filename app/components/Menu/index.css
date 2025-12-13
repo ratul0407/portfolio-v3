@@ -1,0 +1,10 @@
+/* Helper for initial clip-path state to avoid FOUC (Flash of Unstyled Content) */
+.clip-path-start {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+/* Ensure font rendering is smooth for 3D transforms */
+.hero-text-char {
+  backface-visibility: hidden;
+  will-change: transform;
+}
