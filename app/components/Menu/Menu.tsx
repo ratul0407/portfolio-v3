@@ -227,7 +227,7 @@ const Menu = () => {
                 alt="Cycling project preview image"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className="w-full h-full object-cover brightness-100 duration-300"
+                className="w-full h-full object-center object-cover brightness-100 duration-300"
                 priority={currentImageIndex === 0} // Prioritize loading the first image
               />
             </div>

@@ -37,7 +37,7 @@ const ParcelPage = () => {
         {/* 2. Main Content Grid */}
         <div className="flex h-auto w-full flex-col gap-5 lg:h-[500px] lg:flex-row lg:px-24">
           {/* Left Container (Desktop View) - Takes up roughly 66% width */}
-          <div className="flex flex-2 items-center justify-center bg-[#fe4c4b] p-8 md:p-10">
+          <div className="flex flex-2 items-center justify-center bg-[#da2c38] p-8 md:p-10">
             <div className="relative w-full">
               <Image
                 id="parcel-img"
@@ -52,7 +52,7 @@ const ParcelPage = () => {
           </div>
 
           {/* Right Container (Mobile View) - Takes up roughly 33% width */}
-          <div className="flex flex-1 items-center justify-center bg-[#fe4c4b] px-8 md:p-10">
+          <div className="flex flex-1 items-center justify-center bg-[#da2c38] px-8 md:p-10">
             <div className="relative h-full max-h-[600px] w-auto">
               <Image
                 src={parcelPhone}
@@ -90,7 +90,7 @@ const ParcelPage = () => {
         {/* 2. Main Content Grid */}
         <div className="flex h-auto w-full flex-col gap-5 lg:h-[500px] lg:flex-row lg:px-24">
           {/* Left Container (Desktop View) - Takes up roughly 66% width */}
-          <div className="flex flex-2 items-center justify-center bg-green-900 p-8 md:p-10">
+          <div className="flex flex-2 items-center justify-center bg-[#6a994e] p-8 md:p-10">
             <div className="relative w-full">
               <Image
                 id="parcel-img"
@@ -105,7 +105,7 @@ const ParcelPage = () => {
           </div>
 
           {/* Right Container (Mobile View) - Takes up roughly 33% width */}
-          <div className="flex flex-1 items-center justify-center bg-green-900 px-8 md:p-10">
+          <div className="flex flex-1 items-center justify-center bg-[#6a994e] px-8 md:p-10">
             <div className="relative h-full max-h-[600px] w-auto">
               <Image
                 src={PlantLifeMobile}
