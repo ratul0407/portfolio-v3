@@ -27,8 +27,7 @@ const PlantLifePage = () => {
   const containerRef = useRef(null);
   const pathname = usePathname();
 
-  const slug = pathname?.split("/").pop(); // safer than [2]
-  console.log(slug);
+  const slug = pathname?.split("/").pop();
   const project = projectsData.projects.find(
     (p: IProject) => slugify(p.name) === slug
   );

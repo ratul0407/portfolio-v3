@@ -104,6 +104,7 @@ const Menu = () => {
     },
     { scope: container, dependencies: [isMenuOpen] }
   );
+  console.log(isMenuOpen);
   return (
     <div ref={container}>
       {/* Floating Logo */}
@@ -123,8 +124,8 @@ const Menu = () => {
           ${isMenuOpen ? "w-[60px]" : "w-[120px] group"}`}
       >
         <div
-          className={`absolute left-5 text-white font-medium text-xs uppercase transition-opacity duration-300 ${
-            isMenuOpen ? "opacity-0" : "opacity-100 group-hover:opacity-0"
+          className={`absolute left-5 text-white font-medium text-xs uppercase transition-all duration-300 ${
+            isMenuOpen ? "opacity-0" : "opacity-100 group-hover:left-1 "
           }`}
         >
           Menu
@@ -132,8 +133,12 @@ const Menu = () => {
 
         {/* Toggle Icon Circle */}
         <div
-          className={`relative w-[60px] h-[60px] flex items-center justify-center rounded-full bg-green-900 transition-all duration-500 z-10 
-          ${isMenuOpen ? "scale-90" : "scale-100 group-hover:scale-110"}`}
+          className={`relative w-[60px] h-[60px] flex items-center justify-center rounded-full bg-[#6a994e] transition-all duration-500 z-10 
+          ${
+            isMenuOpen
+              ? "scale-90 bg-[#da2c38]"
+              : "scale-100 group-hover:scale-110"
+          }`}
         >
           {/* Hamburger Bars */}
           <div className="relative w-[18px] h-[12px] flex flex-col justify-between">
@@ -178,8 +183,9 @@ const Menu = () => {
               </div>
             ))}
           </div>
-
-          <BouncingBall />
+          <div className="hidden lg:block">
+            <BouncingBall />
+          </div>
         </div>
 
         {/* Column 2: Info & Big Text */}
