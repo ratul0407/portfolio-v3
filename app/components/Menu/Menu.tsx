@@ -1,19 +1,11 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Link } from "next-view-transitions"; // Ensure you have this installed
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/CustomEase";
 import "./index.css"; // Import the minimal CSS file
-import Image from "next/image";
-import flash1Img from "../../assets/flash-images/flash1.png";
-import flash2Img from "../../assets/flash-images/flash2.png";
-import flash3Img from "../../assets/flash-images/flash3.png";
-import flash4Img from "../../assets/flash-images/flash4.png";
-import flash5Img from "../../assets/flash-images/flash5.png";
-import flash6Img from "../../assets/flash-images/flash6.png";
-import flash7Img from "../../assets/flash-images/flash7.png";
-import flash8Img from "../../assets/flash-images/flash8.png";
+import BouncingBall from "./BouncingBall";
 
 gsap.registerPlugin(CustomEase);
 
@@ -22,20 +14,6 @@ CustomEase.create(
   "hop",
   "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1"
 );
-const imageSources = [
-  flash1Img,
-  flash2Img,
-  flash3Img,
-  flash4Img,
-  flash5Img,
-  flash6Img,
-  flash7Img,
-  flash8Img,
-];
-
-// Configuration for Next.js Image Component
-const IMAGE_WIDTH = 500;
-const IMAGE_HEIGHT = 300;
 const Menu = () => {
   const container = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -126,24 +104,6 @@ const Menu = () => {
     },
     { scope: container, dependencies: [isMenuOpen] }
   );
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    // Set up the interval to change the image every 500ms (0.5 seconds)
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex(
-        (prevIndex) =>
-          // Cycle to the next image, wrapping around to 0 if it hits the end
-          (prevIndex + 1) % imageSources.length
-      );
-    }, 500); // 500 milliseconds
-
-    // Cleanup function: Clear the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, []); // Empty dependency array means this runs once on mount
-
-  const currentSrc = imageSources[currentImageIndex];
   return (
     <div ref={container}>
       {/* Floating Logo */}
@@ -219,19 +179,7 @@ const Menu = () => {
             ))}
           </div>
 
-          <div className="hidden lg:block w-full max-w-md aspect-video bg-[#1d1d1d] mt-12 rounded-lg overflow-hidden relative opacity-50">
-            {/* Placeholder for image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-600 text-sm">
-              <Image
-                src={currentSrc}
-                alt="Cycling project preview image"
-                width={IMAGE_WIDTH}
-                height={IMAGE_HEIGHT}
-                className="w-full h-full object-center object-cover brightness-100 duration-300"
-                priority={currentImageIndex === 0} // Prioritize loading the first image
-              />
-            </div>
-          </div>
+          <BouncingBall />
         </div>
 
         {/* Column 2: Info & Big Text */}
@@ -253,12 +201,14 @@ const Menu = () => {
               </p>
               <a
                 href="https://linkedin.com/in/ratul0407"
+                target="_blank"
                 className="social-item opacity-0 translate-y-[30px] hover:text-white transition-colors"
               >
                 LinkedIn
               </a>
               <a
                 href="https://github.com/ratul0407"
+                target="_blank"
                 className="social-item opacity-0 translate-y-[30px] hover:text-white transition-colors"
               >
                 GitHub

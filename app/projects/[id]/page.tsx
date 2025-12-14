@@ -67,7 +67,7 @@ const PlantLifePage = () => {
 
               <p className="uppercase">{name}</p>
             </div>
-            <Link href={link} className="uppercase">
+            <Link href={link} target="_blank" className="uppercase">
               Visit Website
             </Link>
           </div>
