@@ -7,7 +7,7 @@ import { SplitText } from "gsap/all";
 gsap.registerPlugin(SplitText);
 const Home = () => {
   useGSAP(() => {
-    const lines = SplitText.create(".heading", {
+    return SplitText.create(".heading", {
       type: "lines",
       class: "lines",
       mask: "lines",

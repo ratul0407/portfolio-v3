@@ -104,21 +104,64 @@ const PlantLifePage = () => {
           </div>
         </div>
       </div>
+
       <div className="w-full lg:container lg:mx-auto">
-        <div className="grid grid-cols-2 p-10 gap-2">
-          <div>
+        <div className="grid grid-cols-6 p-10 gap-2">
+          <div className="col-span-6 p-10 bg-[#6a994e]">
+            <video
+              autoPlay
+              muted
+              loop
+              src={"/plantlife-video.mp4"}
+              className="w-full max-w-5xl mx-auto"
+            />
+          </div>
+          <div className="col-span-3">
             <Image
               src={plantLifeCategoriesImg}
               alt="PlantLife Categories"
               className="mx-auto "
             />
           </div>
-          <div>
+          <div className="col-span-3">
             <Image
               src={plantLifeCheckoutImg}
               alt="PlantLife Checkout"
               className="mx-auto"
             />
+          </div>
+          <div className="bg-[#6a994e] col-span-2 p-10">
+            <div className="max-w-[380px]">
+              <video
+                autoPlay
+                muted
+                loop
+                src={"/plantlife-m-demo2.mp4"}
+                className="w-full max-w-[380px]"
+              />
+            </div>
+          </div>
+          <div className="bg-[#6a994e] col-span-2 p-10">
+            <div className="max-w-[380px]">
+              <video
+                autoPlay
+                muted
+                loop
+                src={"/plantlife-m-demo1.mp4"}
+                className="w-full max-w-[380px] "
+              />
+            </div>
+          </div>
+          <div className="bg-[#6a994e] col-span-2 p-10">
+            <div className="max-w-[380px]">
+              <video
+                autoPlay
+                muted
+                loop
+                src={"/plantlife-m-demo3.mp4"}
+                className="w-full max-w-[380px]"
+              />
+            </div>
           </div>
         </div>
       </div>
