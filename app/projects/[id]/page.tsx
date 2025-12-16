@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import plantLifeCategoriesImg from "../../assets/plantlife/plantlife-categories.jpg";
 import plantLifeCheckoutImg from "../../assets/plantlife/plantlife-checkout.jpg";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 interface IProject {
   id: number;
@@ -52,10 +52,15 @@ const PlantLifePage = () => {
       },
     });
   }, [{ scope: containerRef }]);
+  useEffect(() => {
+    document.documentElement.classList.add(name);
+    return () => document.documentElement.classList.remove(name);
+  }, []);
 
   return (
     <>
       <div
+        id={name}
         ref={containerRef}
         className="min-h-screen flex flex-col items-start p-10  lg:container lg:mx-auto "
       >

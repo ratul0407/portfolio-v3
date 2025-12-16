@@ -120,7 +120,7 @@ const Menu = () => {
       {/* Menu Toggle Button */}
       <div
         onClick={toggleMenu}
-        className={`fixed top-8 right-8 z-1000 h-[60px] cursor-pointer bg-[#0f0f0f] rounded-full transition-all duration-500 ease-[cubic-bezier(0.075,0.82,0.165,1)] flex items-center justify-end overflow-hidden
+        className={`fixed top-8 right-8 z-200 h-[60px] cursor-pointer bg-[#0f0f0f] rounded-full transition-all duration-500 ease-[cubic-bezier(0.075,0.82,0.165,1)] flex items-center justify-end overflow-hidden
           ${isMenuOpen ? "w-[60px]" : "w-[120px] group"}`}
       >
         <div

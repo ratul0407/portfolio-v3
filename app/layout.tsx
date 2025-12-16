@@ -7,6 +7,7 @@ import { ReactLenis } from "./utils/lenis";
 import FollowMouse from "./components/shared/FollowMouse";
 import localFont from "next/font/local";
 import Menu from "./components/Menu/Menu";
+import { ScrollSync } from "./components/ScrollToSync";
 const canela = localFont({
   src: [
     {
@@ -73,9 +74,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ReactLenis root>
-        <ViewTransitions>
+    <ViewTransitions>
+      <html lang="en">
+        <ReactLenis root>
+          <ScrollSync />
           <body
             className={`antialiased bg-white relative ${canela.variable} ${ppNeueMontreal.variable}`}
           >
@@ -87,8 +89,8 @@ export default function RootLayout({
             <Menu />
             <div className="pt-20">{children}</div>
           </body>
-        </ViewTransitions>
-      </ReactLenis>
-    </html>
+        </ReactLenis>
+      </html>
+    </ViewTransitions>
   );
 }
