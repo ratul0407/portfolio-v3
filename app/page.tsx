@@ -42,7 +42,8 @@ const Home = () => {
   }, [index, isLastWord]);
 
   // --- 2. GSAP Animation Logic (Runs only on the last word) ---
-  useEffect(() => {
+  useGSAP(() => {
+    let animationDone = false;
     if (isLastWord && wordRef.current) {
       // The element must exist before trying to split it
       const greeting = new SplitText(wordRef.current, {
@@ -80,33 +81,27 @@ const Home = () => {
         )
         .to(".loader", {
           display: "none",
-          duration: 0.1,
+          duration: 0,
         });
 
-      // Cleanup function: Revert SplitText changes when component unmounts
-      return () => {
-        greeting.revert();
-      };
+      return SplitText.create(".heading", {
+        type: "lines",
+        class: "lines",
+        mask: "lines",
+        autoSplit: true,
+        onSplit: (self) => {
+          return gsap.from(self.lines, {
+            yPercent: 100,
+            opacity: 1,
+            stagger: 0.05,
+            duration: 0.8,
+            ease: "expo.out",
+            delay: 3,
+          });
+        },
+      });
     }
   }, [isLastWord]); // Reruns ONLY when isLastWord changes to true
-  useGSAP(() => {
-    return SplitText.create(".heading", {
-      type: "lines",
-      class: "lines",
-      mask: "lines",
-      autoSplit: true,
-      onSplit: (self) => {
-        return gsap.from(self.lines, {
-          yPercent: 100,
-          opacity: 1,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: "expo.out",
-          delay: 0.4,
-        });
-      },
-    });
-  }, []);
 
   return (
     <>
@@ -117,9 +112,9 @@ const Home = () => {
           {words[index]}
         </p>
       </div>
-      <div className="p-10 overflow-hidden flex flex-col items-start min-h-screen justify-evenly">
+      <div className="p-10 overflow-hidden flex flex-col items-start min-h-screen justify-evenly ">
         <div className="items-center justify-center ">
-          <h1 className="heading w-full text-5xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium ">
+          <h1 className="heading w-full text-5xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium">
             Hi I am Ratul. A full Stack Developer from{" "}
             <span className="text-[#386641]">Bangladesh.</span> A programmer who
             loves to build things and learn new things.

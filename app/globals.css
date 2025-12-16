@@ -10,7 +10,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 1em;
+  width: 0em;
 }
 ::-webkit-scrollbar-track {
   background: white;

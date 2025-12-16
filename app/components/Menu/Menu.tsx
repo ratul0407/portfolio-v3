@@ -175,7 +175,7 @@ const Menu = () => {
                   <Link
                     href={`/${item.toLowerCase()}`}
                     onClick={toggleMenu} // Close menu on click so view transition is visible
-                    className="text-6xl lg:text-[5rem] font-light leading-[1.1] tracking-tight hover:text-[#cda272] transition-colors"
+                    className="text-6xl lg:text-[5rem] font-light leading-[1.1] tracking-tight hover:tracking-wider transition-all duration-300"
                   >
                     {item}
                   </Link>
