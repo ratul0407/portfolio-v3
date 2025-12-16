@@ -62,7 +62,7 @@ const PlantLifePage = () => {
       <div
         id={name}
         ref={containerRef}
-        className="min-h-screen flex flex-col items-start p-10  lg:container lg:mx-auto "
+        className="min-h-screen flex flex-col items-start p-10  lg:container lg:mx-auto 2xl:justify-center"
       >
         <div>
           <div className="flex items-start justify-between  text-sm">
@@ -76,7 +76,7 @@ const PlantLifePage = () => {
             </Link>
           </div>
           <div className="lg:pl-22 mt-10 lg:mt-20 space-y-16">
-            <p className="description font-canela max-w-[30ch] text-3xl lg:text-5xl font-light">
+            <p className="description font-canela max-w-[30ch] text-3xl lg:text-5xl font-light xl:max-w-full">
               {description}
             </p>
             <div className="flex justify-between items-start">
