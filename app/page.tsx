@@ -95,7 +95,7 @@ const Home = () => {
             opacity: 1,
             stagger: 0.05,
             duration: 0.8,
-            ease: "expo.out",
+            ease: "cubic-bezier(0.55, 0, 1, 0.45)",
             delay: 3,
           });
         },

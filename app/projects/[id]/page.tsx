@@ -12,11 +12,18 @@ import Image from "next/image";
 interface IProject {
   id: number;
   name: string;
+  color: string;
   description: string;
   link: string;
   technologies: {
     frontend: string[];
     backend: string[];
+  };
+  videos: {
+    "full-demo": string;
+    demo_1: string;
+    demo_2: string;
+    demo_3: string;
   };
 }
 gsap.registerPlugin(SplitText);
@@ -33,7 +40,7 @@ const PlantLifePage = () => {
   );
 
   if (!project) return;
-  const { name, description, link, technologies, id } = project;
+  const { name, description, link, technologies, id, videos, color } = project;
   useGSAP(() => {
     return new SplitText(".description", {
       type: "lines",
@@ -112,12 +119,12 @@ const PlantLifePage = () => {
 
       <div className="w-full lg:container lg:mx-auto">
         <div className="grid grid-cols-6 p-10 gap-2">
-          <div className="col-span-6 p-10 bg-[#6a994e]">
+          <div className="col-span-6 p-10" style={{ backgroundColor: color }}>
             <video
               autoPlay
               muted
               loop
-              src={"/plantlife-video.mp4"}
+              src={videos["full-demo"]}
               className="w-full max-w-5xl mx-auto"
             />
           </div>
@@ -135,35 +142,35 @@ const PlantLifePage = () => {
               className="mx-auto"
             />
           </div>
-          <div className="bg-[#6a994e] col-span-2 p-10">
+          <div className="col-span-2 p-10" style={{ backgroundColor: color }}>
             <div className="max-w-[380px]">
               <video
                 autoPlay
                 muted
                 loop
-                src={"/plantlife-m-demo2.mp4"}
+                src={videos["demo_1"]}
                 className="w-full max-w-[380px]"
               />
             </div>
           </div>
-          <div className="bg-[#6a994e] col-span-2 p-10">
+          <div className="col-span-2 p-10" style={{ backgroundColor: color }}>
             <div className="max-w-[380px]">
               <video
                 autoPlay
                 muted
                 loop
-                src={"/plantlife-m-demo1.mp4"}
+                src={videos["demo_2"]}
                 className="w-full max-w-[380px] "
               />
             </div>
           </div>
-          <div className="bg-[#6a994e] col-span-2 p-10">
+          <div className=" col-span-2 p-10" style={{ backgroundColor: color }}>
             <div className="max-w-[380px]">
               <video
                 autoPlay
                 muted
                 loop
-                src={"/plantlife-m-demo3.mp4"}
+                src={videos["demo_3"]}
                 className="w-full max-w-[380px]"
               />
             </div>
