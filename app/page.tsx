@@ -26,6 +26,7 @@ const Home = () => {
   // --- 1. Word Cycling Logic (Moves to the next word) ---
   useEffect(() => {
     // Stop the cycle when the last word is reached
+
     if (isLastWord) return;
 
     // Set a timeout to transition to the next word
@@ -43,7 +44,6 @@ const Home = () => {
 
   // --- 2. GSAP Animation Logic (Runs only on the last word) ---
   useGSAP(() => {
-    let animationDone = false;
     if (isLastWord && wordRef.current) {
       // The element must exist before trying to split it
       const greeting = new SplitText(wordRef.current, {
@@ -112,6 +112,7 @@ const Home = () => {
           {words[index]}
         </p>
       </div>
+
       <div className="p-10 overflow-hidden flex flex-col items-start min-h-screen justify-evenly ">
         <div className="items-center justify-center ">
           <h1 className="heading w-full text-5xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium">

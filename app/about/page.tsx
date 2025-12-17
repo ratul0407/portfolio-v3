@@ -33,7 +33,9 @@ const AboutPage = () => {
       <div className="space-y-12">
         <h1 className="text-5xl font-canela font-light">About</h1>
         <p className="text-2xl font-canela font-light">
-          HTML Programmer Since 2022-RIP.
+          A Full Stack Developer From Bangladesh. A programmer who loves to
+          build websites that has unique design but his design kinda sucks
+          though.
         </p>
         <div className="flex justify-between items-start w-full">
           <div className="flex items-start gap-20">

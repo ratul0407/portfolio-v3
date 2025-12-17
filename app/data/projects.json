@@ -10,6 +10,10 @@
         "frontend": ["React", "Redux", "ShadCN", "GSAP", "Framer Motion"],
         "backend": ["Node.js", "Express.js", "Mongoose", "Stripe", "Cloudinary"]
       },
+      "images": {
+        "image_1": "/plantlife-categories.jpg",
+        "image_2": "/plantlife-checkout.jpg"
+      },
       "videos": {
         "full-demo": "/plantlife-video.mp4",
         "demo_1": "/plantlife-m-demo1.mp4",
@@ -26,6 +30,10 @@
       "technologies": {
         "frontend": ["React", "Redux", "ShadCN", "Framer Motion"],
         "backend": ["Node.js", "Express.js", "Mongoose", "Leaflet"]
+      },
+      "images": {
+        "image_1": "/home-parcel.jpg",
+        "image_2": "/map-parcel.jpg"
       },
       "videos": {
         "full-demo": "/parcel-video.mp4",

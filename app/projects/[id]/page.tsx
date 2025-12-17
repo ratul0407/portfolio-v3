@@ -5,8 +5,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import plantLifeCategoriesImg from "../../assets/plantlife/plantlife-categories.jpg";
-import plantLifeCheckoutImg from "../../assets/plantlife/plantlife-checkout.jpg";
+
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 interface IProject {
@@ -40,7 +39,8 @@ const PlantLifePage = () => {
   );
 
   if (!project) return;
-  const { name, description, link, technologies, id, videos, color } = project;
+  const { name, description, link, technologies, id, images, videos, color } =
+    project;
   useGSAP(() => {
     return new SplitText(".description", {
       type: "lines",
@@ -130,16 +130,20 @@ const PlantLifePage = () => {
           </div>
           <div className="col-span-3">
             <Image
-              src={plantLifeCategoriesImg}
+              width={400}
+              height={400}
+              src={images.image_1}
               alt="PlantLife Categories"
-              className="mx-auto "
+              className="mx-auto w-full h-full"
             />
           </div>
           <div className="col-span-3">
             <Image
-              src={plantLifeCheckoutImg}
+              width={400}
+              height={400}
+              src={images.image_2}
               alt="PlantLife Checkout"
-              className="mx-auto"
+              className="mx-auto w-full h-full"
             />
           </div>
           <div className="col-span-2 p-10" style={{ backgroundColor: color }}>
