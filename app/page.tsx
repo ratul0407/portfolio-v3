@@ -25,15 +25,7 @@ const technologies = {
   ],
 };
 gsap.registerPlugin(SplitText);
-const words = [
-  "Hello",
-  "welcome",
-  "কেমন",
-  "আছেন",
-  "こんにちは",
-  "Ole",
-  "Assalamualikum",
-];
+const words = ["Hello", "কেমন আছেন", "こんにちは", "Ole", "Assalamualikum"];
 const Home = () => {
   const [index, setIndex] = useState(0);
   const isLastWord = index === words.length - 1;
@@ -116,21 +108,24 @@ const Home = () => {
       <div className="loader min-h-screen grid items-center justify-center absolute inset-0 z-300 overflow-hidden">
         <div className="loader-left min-w-1/2 min-h-screen bg-black absolute top-0 right-0 z-300"></div>
         <div className="loader-right min-w-1/2 bg-black absolute top-0 left-0 z-300 min-h-screen"></div>
-        <p ref={wordRef} className="text-5xl text-white tracking z-310">
+        <p
+          ref={wordRef}
+          className="text-base lg:text-5xl text-white tracking z-310 min-h-screen  flex text-center lg:items-center lg:justify-center"
+        >
           {words[index]}
         </p>
       </div>
 
       <div className="p-10 overflow-hidden flex flex-col items-start min-h-screen justify-evenly ">
         <div className="items-center justify-center ">
-          <h1 className="heading w-full text-5xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium">
+          <h1 className="heading w-full text-3xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium">
             Hi I am Ratul. A full Stack Developer from{" "}
             <span className="text-[#386641]">Bangladesh.</span> A programmer who
             loves to build things and learn new things.
           </h1>
         </div>
-        <div className="flex justify-between items-start w-full">
-          <div className="flex items-start gap-20">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-start w-full mt-10 lg:mt-0">
+          <div className="flex flex-col lg:flex-row items-start gap-20">
             <div className="text-sm space-y-4 uppercase">
               <p>(Projects)</p>
               <div className="space-y-1.5">

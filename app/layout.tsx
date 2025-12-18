@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { ViewTransitions } from "next-view-transitions";
-import Navbar from "./components/Navbar";
 import { ReactLenis } from "./utils/lenis";
 import FollowMouse from "./components/shared/FollowMouse";
 import localFont from "next/font/local";

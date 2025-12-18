@@ -208,7 +208,7 @@ const Menu = () => {
             </div>
             <div className="flex flex-col gap-2">
               <p className="social-item opacity-0 translate-y-[30px] text-white font-medium mb-2">
-                Socials
+                Contact
               </p>
               <a
                 href="https://linkedin.com/in/ratul0407"

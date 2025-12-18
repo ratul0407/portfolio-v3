@@ -161,7 +161,7 @@ const TwoBallCollisionCanvas = () => {
   }, []); // Run once on mount
 
   return (
-    <div className="bg-#000">
+    <div className="bg-white/10">
       <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} />
     </div>
   );

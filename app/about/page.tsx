@@ -21,7 +21,7 @@ const technologies = {
 };
 const AboutPage = () => {
   return (
-    <div className="p-6 lg:p-10 xl:p-20 lg:container lg:mx-auto min-h-screen flex items-center justify-around gap-20">
+    <div className="p-6 lg:p-10 xl:p-20 lg:container lg:mx-auto min-h-screen flex flex-col items-center justify-around gap-20 lg:flex-row-reverse">
       <Image
         src={me}
         alt="Ratul"
