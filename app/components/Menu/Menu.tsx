@@ -171,7 +171,7 @@ const Menu = () => {
           </div>
 
           <div className="flex flex-col gap-4 mt-20 lg:mt-0">
-            {["About", "Projects", "Contact"].map((item, idx) => (
+            {["About", "Projects"].map((item, idx) => (
               <div key={idx} className="overflow-hidden">
                 <div className="nav-link opacity-0 translate-y-[30px]">
                   <Link
