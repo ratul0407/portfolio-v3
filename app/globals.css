@@ -20,6 +20,25 @@ body {
   background: white;
   border-radius: 100vw;
 }
+.underline-custom {
+  position: relative;
+  width: fit-content;
+}
+.underline-custom::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: -1;
+  left: 0;
+  transform-origin: left;
+  transition: width 0.3s ease-in-out;
+}
+.underline-custom:hover::after {
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+}
 
 html.lenis,
 html.lenis body {

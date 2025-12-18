@@ -111,9 +111,11 @@ const Menu = () => {
       <div className="absolute top-8 left-8 z-50">
         <Link
           href="/"
-          className="fixed text-black text-3xl font-light uppercase tracking-wide mix-blend-difference"
+          className="fixed text-black  text-sm font-light uppercase tracking-wide mix-blend-difference w-fit max-w-28  overflow-hidden"
         >
-          Ratul
+          <div className="w-fit hover:-translate-x-16 transition-transform duration-400 relative whitespace-nowrap">
+            made by Ratul & NEXTJS
+          </div>
         </Link>
       </div>
 
@@ -175,7 +177,7 @@ const Menu = () => {
                   <Link
                     href={`/${item.toLowerCase()}`}
                     onClick={toggleMenu} // Close menu on click so view transition is visible
-                    className="text-6xl lg:text-[5rem] font-light leading-[1.1] tracking-tight hover:tracking-wider transition-all duration-300"
+                    className="uppercase tracking-wider text-2xl lg:text-5xl font-light leading-[1.1]  hover:tracking-[0.3em] transition-all duration-300"
                   >
                     {item}
                   </Link>
@@ -195,6 +197,9 @@ const Menu = () => {
             <div className="flex flex-col gap-2">
               <p className="social-item opacity-0 translate-y-[30px] text-white font-medium mb-2">
                 Location
+              </p>
+              <p className="social-item opacity-0 translate-y-[30px]">
+                Narayanganj
               </p>
               <p className="social-item opacity-0 translate-y-[30px]">Dhaka</p>
               <p className="social-item opacity-0 translate-y-[30px]">
@@ -218,6 +223,20 @@ const Menu = () => {
                 className="social-item opacity-0 translate-y-[30px] hover:text-white transition-colors"
               >
                 GitHub
+              </a>
+              <a
+                href="mailto:rajaulislamratul12@gmail.com"
+                target="_blank"
+                className="social-item opacity-0 translate-y-[30px] hover:text-white transition-colors"
+              >
+                email
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1gYDjVXZX55QXytaOKnXNF1eFmoJOHk3z/view?usp=sharing"
+                target="_blank"
+                className="social-item opacity-0 translate-y-[30px] hover:text-white transition-colors"
+              >
+                Resume
               </a>
             </div>
           </div>

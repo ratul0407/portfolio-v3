@@ -39,8 +39,19 @@ const PlantLifePage = () => {
   );
 
   if (!project) return;
-  const { name, description, link, technologies, id, images, videos, color } =
-    project;
+  const {
+    name,
+    description,
+    link,
+    technologies,
+    id,
+    images,
+    videos,
+    color,
+    github_backend,
+    github_frontend,
+  } = project;
+  project;
   useGSAP(() => {
     return new SplitText(".description", {
       type: "lines",
@@ -78,7 +89,11 @@ const PlantLifePage = () => {
 
               <p className="uppercase">{name}</p>
             </div>
-            <Link href={link} target="_blank" className="uppercase">
+            <Link
+              href={link}
+              target="_blank"
+              className="uppercase underline-custom"
+            >
               Visit Website
             </Link>
           </div>
@@ -107,10 +122,24 @@ const PlantLifePage = () => {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="space-y-2">
                 <p className="uppercase text-sm mr-auto">
                   (Made with ❤️ and typescript)
                 </p>
+                <Link
+                  href={github_frontend}
+                  target="_blank"
+                  className="uppercase text-sm block mr-auto underline-custom"
+                >
+                  Frontend code
+                </Link>
+                <Link
+                  href={github_backend}
+                  target="_blank"
+                  className="uppercase text-sm block mr-auto underline-custom"
+                >
+                  Backend code
+                </Link>
               </div>
             </div>
           </div>

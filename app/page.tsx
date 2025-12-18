@@ -3,10 +3,26 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { Link } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
 const technologies = {
   projects: ["PlantLife", "EParcel"],
-  links: ["About", "projects", "contact"],
+  links: ["About", "projects"],
+  contact: [
+    {
+      title: "resume",
+      href: "https://drive.google.com/file/d/1gYDjVXZX55QXytaOKnXNF1eFmoJOHk3z/view?usp=sharing",
+    },
+    { title: "Github", href: "https://github.com/ratul0407" },
+    {
+      title: "Linkedin",
+      href: "https://linkedin.com/in/ratul0407",
+    },
+    {
+      title: "Email",
+      href: "mailto:rajaulislamratul12@gmail.com",
+    },
+  ],
 };
 gsap.registerPlugin(SplitText);
 const Home = () => {
@@ -21,31 +37,24 @@ const Home = () => {
   ];
   const [index, setIndex] = useState(0);
   const isLastWord = index === words.length - 1;
-  const wordRef = useRef(null); // Ref for the paragraph element
+  const wordRef = useRef(null);
 
-  // --- 1. Word Cycling Logic (Moves to the next word) ---
   useEffect(() => {
-    // Stop the cycle when the last word is reached
-
     if (isLastWord) return;
 
-    // Set a timeout to transition to the next word
     const timer = setTimeout(
       () => {
         setIndex(index + 1);
       },
-      // You can keep the 400ms delay for all
+
       400
     );
 
-    // Cleanup function for the timeout
     return () => clearTimeout(timer);
   }, [index, isLastWord]);
 
-  // --- 2. GSAP Animation Logic (Runs only on the last word) ---
   useGSAP(() => {
     if (isLastWord && wordRef.current) {
-      // The element must exist before trying to split it
       const greeting = new SplitText(wordRef.current, {
         type: "chars",
         charsClass: "chars++",
@@ -65,7 +74,6 @@ const Home = () => {
           stagger: 0.08,
         })
         .to(".loader-left", {
-          // Changed transform to y, and duration to 1.5 for smoother transition
           x: "100%",
           duration: 1,
           ease: "power2.inOut",
@@ -101,7 +109,7 @@ const Home = () => {
         },
       });
     }
-  }, [isLastWord]); // Reruns ONLY when isLastWord changes to true
+  }, [isLastWord]);
 
   return (
     <>
@@ -123,19 +131,46 @@ const Home = () => {
         </div>
         <div className="flex justify-between items-start w-full">
           <div className="flex items-start gap-20">
-            <div className="text-sm space-y-2 uppercase">
+            <div className="text-sm space-y-4 uppercase">
               <p>(Projects)</p>
-              <div>
+              <div className="space-y-1.5">
                 {technologies.projects.map((item: string, index: number) => (
-                  <p key={index}>{item}</p>
+                  <Link
+                    href={`/projects/${item.toLowerCase()}`}
+                    className="block"
+                    key={index}
+                  >
+                    {item}
+                  </Link>
                 ))}
               </div>
             </div>
-            <div className="text-sm space-y-2 uppercase">
+            <div className="text-sm space-y-4 uppercase">
               <p>(links)</p>
-              <div>
+              <div className="space-y-1.5">
                 {technologies.links.map((item: string, index: number) => (
-                  <p key={index}>{item}</p>
+                  <Link
+                    href={`/${item.toLowerCase()}`}
+                    className="block"
+                    key={index}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="text-sm space-y-4 uppercase">
+              <p>(Contact)</p>
+              <div className="space-y-1.5">
+                {technologies.contact.map(({ title, href }, index: number) => (
+                  <Link
+                    href={`${href}`}
+                    target="_blank"
+                    className="block"
+                    key={index}
+                  >
+                    {title}
+                  </Link>
                 ))}
               </div>
             </div>

@@ -6,6 +6,8 @@
       "color": "#6a994e",
       "description": "PlantLife is a modern e-commerce web application focused on delivering a smooth and visually engaging shopping experience for the users and as well as a proper dashboard for the admin to manage the products and orders.",
       "link": "https://plantlife-client.vercel.app",
+      "github_frontend": "https://github.com/ratul0407/plantlife-client",
+      "github_backend": "https://github.com/ratul0407/plantlife-server",
       "technologies": {
         "frontend": ["React", "Redux", "ShadCN", "GSAP", "Framer Motion"],
         "backend": ["Node.js", "Express.js", "Mongoose", "Stripe", "Cloudinary"]
@@ -27,6 +29,8 @@
       "color": "#da2c38",
       "description": "EParcel is a Parcel tracking system with real time map updates and status updates with payment gateways and notifications.",
       "link": "https://parcel-delivery-frontend.vercel.app",
+      "github_frontend": "https://github.com/ratul0407/Level-2-A6",
+      "github_backend": "https://github.com/ratul0407/Level-2-A5",
       "technologies": {
         "frontend": ["React", "Redux", "ShadCN", "Framer Motion"],
         "backend": ["Node.js", "Express.js", "Mongoose", "Leaflet"]
