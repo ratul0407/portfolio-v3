@@ -9,7 +9,6 @@ const technologies = {
     "Redux",
     "SHADCN",
     "GSAP",
-    "FRAMER MOTION",
   ],
   backend: [
     "Node.js",
@@ -33,9 +32,10 @@ const AboutPage = () => {
       <div className="space-y-12">
         <h1 className="text-5xl font-canela font-light">About</h1>
         <p className="text-2xl font-canela font-light">
-          A Full Stack Developer From Bangladesh. A programmer who loves to
-          build websites that has unique design but his design sense kinda sucks
-          though.
+          A Full Stack Developer From Bangladesh. I have 1+ years of hands-on
+          experience in the industry. I am passionate about building
+          user-friendly and efficient software solutions. I am not perfect
+          'cause I never stopped learning.
         </p>
         <div className="flex justify-between items-start w-full">
           <div className="flex items-start gap-20">

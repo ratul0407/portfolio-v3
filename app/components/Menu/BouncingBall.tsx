@@ -35,7 +35,7 @@ const TwoBallCollisionCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = (canvas as any).getContext("2d");
 
     // --- Core Collision Logic ---
 
@@ -44,7 +44,7 @@ const TwoBallCollisionCanvas = () => {
      * This uses the standard 2D vector math for perfectly elastic collision
      * between two circles of equal mass (since their radii are the same).
      */
-    const resolveCollision = (ballA, ballB) => {
+    const resolveCollision = (ballA: any, ballB: any) => {
       // 1. Calculate the distance vector (vector from B to A)
       const dx = ballA.x - ballB.x;
       const dy = ballA.y - ballB.y;
@@ -93,7 +93,7 @@ const TwoBallCollisionCanvas = () => {
 
     // --- Drawing and Wall Collision ---
 
-    const drawBall = (ball) => {
+    const drawBall = (ball: any) => {
       ctx.beginPath();
       ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
       ctx.fillStyle = ball.color;
@@ -101,7 +101,7 @@ const TwoBallCollisionCanvas = () => {
       ctx.closePath();
     };
 
-    const updateBallPosition = (ball) => {
+    const updateBallPosition = (ball: any) => {
       // Wall Collision Check
       if (
         ball.x + ball.dx > CANVAS_WIDTH - ball.radius ||
@@ -161,7 +161,7 @@ const TwoBallCollisionCanvas = () => {
   }, []); // Run once on mount
 
   return (
-    <div className="bg-[#000]">
+    <div className="bg-#000">
       <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} />
     </div>
   );

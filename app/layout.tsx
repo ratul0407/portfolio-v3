@@ -8,6 +8,7 @@ import FollowMouse from "./components/shared/FollowMouse";
 import localFont from "next/font/local";
 import Menu from "./components/Menu/Menu";
 import { ScrollSync } from "./components/ScrollToSync";
+import Loader from "./components/shared/Loader";
 const canela = localFont({
   src: [
     {
@@ -84,9 +85,8 @@ export default function RootLayout({
             <div className="hidden lg:block">
               <FollowMouse />
             </div>
-            {/* <ScrollProgress /> */}
-            {/* <Navbar /> */}
             <Menu />
+            {/* <Loader /> */}
             <div className="pt-20">{children}</div>
           </body>
         </ReactLenis>

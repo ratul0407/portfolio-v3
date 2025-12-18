@@ -25,16 +25,16 @@ const technologies = {
   ],
 };
 gsap.registerPlugin(SplitText);
+const words = [
+  "Hello",
+  "welcome",
+  "কেমন",
+  "আছেন",
+  "こんにちは",
+  "Ole",
+  "Assalamualikum",
+];
 const Home = () => {
-  const words = [
-    "Hello",
-    "welcome",
-    "কেমন",
-    "আছেন",
-    "こんにちは",
-    "Ole",
-    "Assalamualikum",
-  ];
   const [index, setIndex] = useState(0);
   const isLastWord = index === words.length - 1;
   const wordRef = useRef(null);
