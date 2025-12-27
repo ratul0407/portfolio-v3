@@ -7,15 +7,19 @@ import PlantLifeMobile from "../assets/plantlife-mobile.png";
 import Link from "next/link";
 import { useTransitionRouter } from "next-view-transitions";
 import { slideInOut } from "../utils/slideInOut";
+import { useRouter } from "next/navigation";
 
 const ParcelPage = () => {
   const router = useTransitionRouter();
-
+  const prefetchRouter = useRouter();
   return (
     <>
       <section className="min-h-screen w-full p-6 md:p-10 text-gray-900">
         {/* 1. Header Section */}
-        <div className="flex w-full items-baseline justify-between pb-6 text-sm tracking-wide uppercase md:text-base">
+        <div
+          className="flex w-full items-baseline justify-between pb-6 text-sm tracking-wide uppercase md:text-base"
+          onMouseEnter={() => prefetchRouter.prefetch("/projects/plantlife")}
+        >
           <div className="flex gap-18">
             <span>01.</span>
             <h1>PLANTLIFE</h1>
@@ -36,7 +40,10 @@ const ParcelPage = () => {
         </div>
 
         {/* 2. Main Content Grid */}
-        <div className="flex h-auto w-full flex-col gap-5 lg:h-[500px] lg:flex-row lg:px-24">
+        <div
+          className="flex h-auto w-full flex-col gap-5 lg:h-[500px] lg:flex-row lg:px-24"
+          onMouseEnter={() => prefetchRouter.prefetch("/projects/eparcel")}
+        >
           {/* Left Container (Desktop View) - Takes up roughly 66% width */}
           <div className="flex flex-2 items-center justify-center bg-[#6a994e] p-8 md:p-10">
             <div className="relative w-full">
