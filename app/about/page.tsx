@@ -10,7 +10,7 @@ const technologies = {
     "SHADCN",
     "GSAP",
   ],
-  backend: ["Node.js", "Express.js", "prisma", "mongoose", "bull mq", ,],
+  backend: ["Node.js", "Express.js", "prisma", "mongoose", "bull mq"],
   database: ["mongodb", "postgresql", "redis"],
 };
 const AboutPage = () => {
