@@ -13,7 +13,7 @@ gsap.registerPlugin(CustomEase);
 // Custom easing curve
 CustomEase.create(
   "hop",
-  "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1"
+  "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1",
 );
 const Menu = () => {
   const router = useRouter();
@@ -48,7 +48,7 @@ const Menu = () => {
           .to(
             ".menu-logo-link",
             { y: 0, opacity: 1, duration: 0.5, ease: "power4.out" },
-            "-=0.75"
+            "-=0.75",
           )
           .to(
             ".nav-link",
@@ -59,7 +59,7 @@ const Menu = () => {
               duration: 0.5,
               ease: "power3.out",
             },
-            "-=0.75"
+            "-=0.75",
           )
           .to(
             ".social-item",
@@ -69,7 +69,7 @@ const Menu = () => {
               stagger: 0.05,
               ease: "power3.out",
             },
-            "-=0.75"
+            "-=0.75",
           )
           .to(
             ".hero-text-char",
@@ -81,7 +81,7 @@ const Menu = () => {
               duration: 0.5,
               ease: "power4.out",
             },
-            "-=0.75"
+            "-=0.75",
           );
       } else {
         // CLOSE ANIMATION
@@ -104,7 +104,7 @@ const Menu = () => {
         });
       }
     },
-    { scope: container, dependencies: [isMenuOpen] }
+    { scope: container, dependencies: [isMenuOpen] },
   );
   console.log(isMenuOpen);
   return (
@@ -113,7 +113,7 @@ const Menu = () => {
       <div className="absolute top-8 left-8 z-50">
         <Link
           href="/"
-          className="fixed text-black  text-sm font-light uppercase tracking-wide mix-blend-difference w-fit max-w-28  overflow-hidden"
+          className="fixed text-black  text-sm font-light uppercase tracking-wide mix-blend-difference w-fit max-w-32  overflow-hidden"
         >
           <div className="w-fit hover:-translate-x-16 transition-transform duration-400 relative whitespace-nowrap">
             made by Ratul & NEXTJS

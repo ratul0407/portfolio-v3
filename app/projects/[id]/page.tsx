@@ -6,8 +6,9 @@ import { SplitText } from "gsap/all";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
+import LazyVideo from "@/app/components/shared/LazyVideo";
 interface IProject {
   id: number;
   name: string;
@@ -19,10 +20,26 @@ interface IProject {
     backend: string[];
   };
   videos: {
-    "full-demo": string;
-    demo_1: string;
-    demo_2: string;
-    demo_3: string;
+    "full-demo": {
+      webm: string;
+      mp4?: string;
+      poster: string;
+    };
+    demo_1: {
+      webm: string;
+      mp4?: string;
+      poster: string;
+    };
+    demo_2: {
+      webm: string;
+      mp4?: string;
+      poster: string;
+    };
+    demo_3: {
+      webm: string;
+      mp4?: string;
+      poster: string;
+    };
   };
 }
 gsap.registerPlugin(SplitText);
@@ -35,23 +52,9 @@ const PlantLifePage = () => {
 
   const slug = pathname?.split("/").pop();
   const project = projectsData.projects.find(
-    (p: IProject) => slugify(p.name) === slug
+    (p: IProject) => slugify(p.name) === slug,
   );
 
-  if (!project) return;
-  const {
-    name,
-    description,
-    link,
-    technologies,
-    id,
-    images,
-    videos,
-    color,
-    github_backend,
-    github_frontend,
-  } = project;
-  project;
   useGSAP(() => {
     return new SplitText(".description", {
       type: "lines",
@@ -70,17 +73,26 @@ const PlantLifePage = () => {
       },
     });
   }, [{ scope: containerRef }]);
-  useEffect(() => {
-    document.documentElement.classList.add(name);
-    return () => document.documentElement.classList.remove(name);
-  }, []);
 
+  if (!project) return;
+  const {
+    name,
+    description,
+    link,
+    technologies,
+    id,
+    images,
+    videos,
+    color,
+    github_backend,
+    github_frontend,
+  } = project;
   return (
     <>
       <div
         id={name}
         ref={containerRef}
-        className="min-h-screen flex flex-col items-start p-10  lg:container lg:mx-auto 2xl:justify-center"
+        className="lg:min-h-screen flex flex-col items-start p-10  lg:container lg:mx-auto 2xl:justify-center"
       >
         <div>
           <div className="flex items-start justify-between  text-sm">
@@ -98,7 +110,7 @@ const PlantLifePage = () => {
             </Link>
           </div>
           <div className="lg:pl-22 mt-10 lg:mt-20 space-y-16">
-            <p className="description font-canela max-w-[30ch] text-3xl lg:text-5xl font-light xl:max-w-full">
+            <p className="description font-canela max-w-[30ch]  text-3xl lg:text-5xl font-light xl:max-w-full md:max-w-[40ch]">
               {description}
             </p>
             <div className="flex justify-between items-start">
@@ -109,7 +121,7 @@ const PlantLifePage = () => {
                     {technologies.frontend.map(
                       (item: string, index: number) => (
                         <p key={index}>{item}</p>
-                      )
+                      ),
                     )}
                   </div>
                 </div>
@@ -147,67 +159,76 @@ const PlantLifePage = () => {
       </div>
 
       <div className="w-full lg:container lg:mx-auto">
-        <div className="grid grid-cols-6 p-10 gap-2">
-          <div className="col-span-6 p-10" style={{ backgroundColor: color }}>
-            <video
-              autoPlay
-              muted
-              loop
-              src={videos["full-demo"]}
-              className="w-full max-w-5xl mx-auto"
+        {/* Grid is now mobile-first (1 column) and switches to 6 columns on medium screens up */}
+        <div className="grid grid-cols-1 md:grid-cols-6 p-4 md:p-10 gap-4">
+          {/* 1. Full Width Video Block */}
+          <div
+            className="col-span-1 md:col-span-6 p-4 md:p-10 rounded-sm shadow-sm"
+            style={{ backgroundColor: color }}
+          >
+            <LazyVideo
+              src={videos["full-demo"].webm}
+              altSrc={videos["full-demo"].mp4}
+              poster={videos["full-demo"].poster}
+              priority={true}
+              className="w-full mx-auto aspect-16/11 rounded-md bg-black/10 object-cover"
             />
           </div>
-          <div className="col-span-3">
-            <Image
-              width={400}
-              height={400}
-              src={images.image_1}
-              alt="PlantLife Categories"
-              className="mx-auto w-full h-full"
-            />
-          </div>
-          <div className="col-span-3">
-            <Image
-              width={400}
-              height={400}
-              src={images.image_2}
-              alt="PlantLife Checkout"
-              className="mx-auto w-full h-full"
-            />
-          </div>
-          <div className="col-span-2 p-10" style={{ backgroundColor: color }}>
-            <div className="max-w-[380px]">
-              <video
-                autoPlay
-                muted
-                loop
-                src={videos["demo_1"]}
-                className="w-full max-w-[380px]"
+
+          {/* 2. Category Image Block */}
+          <div className="col-span-1 md:col-span-3">
+            {/* Wrapper matching the image's 400x400 1:1 aspect ratio */}
+            <div className="relative w-full aspect-square bg-gray-100 rounded-sm overflow-hidden">
+              <Image
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                src={images.image_1}
+                alt="PlantLife Categories"
+                className="object-cover"
               />
             </div>
           </div>
-          <div className="col-span-2 p-10" style={{ backgroundColor: color }}>
-            <div className="max-w-[380px]">
-              <video
-                autoPlay
-                muted
-                loop
-                src={videos["demo_2"]}
-                className="w-full max-w-[380px] "
+
+          {/* 3. Checkout Image Block */}
+          <div className="col-span-1 md:col-span-3">
+            <div className="relative w-full aspect-square bg-gray-100 rounded-sm overflow-hidden">
+              <Image
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                src={images.image_2}
+                alt="PlantLife Checkout"
+                className="object-cover"
               />
             </div>
           </div>
-          <div className=" col-span-2 p-10" style={{ backgroundColor: color }}>
-            <div className="max-w-[380px]">
-              <video
-                autoPlay
-                muted
-                loop
-                src={videos["demo_3"]}
-                className="w-full max-w-[380px]"
-              />
-            </div>
-          </div>
+
+          {/* 4. Mini Demo Video 1 */}
+          {Array.from({ length: 3 }, (_, i) => {
+            // Calculate the correct key name dynamically (demo_1, demo_2, demo_3)
+            const videoKey = `demo_${i + 1}` as keyof typeof videos;
+            const videoData = videos[videoKey];
+
+            // 1. ADDED EXPLICIT RETURN
+            return (
+              <div
+                key={videoKey} // Always provide a unique key when mapping in React
+                className="col-span-1 md:col-span-2 p-6 md:p-10 flex justify-center items-center rounded-sm"
+                style={{ backgroundColor: color }}
+              >
+                <div className="w-full max-w-[380px]">
+                  <LazyVideo
+                    autoPlay
+                    muted
+                    loop
+                    src={videoData.webm}
+                    altSrc={videoData.mp4}
+                    poster={videoData.poster}
+                    className="w-full aspect-9/16 rounded-xl bg-black/10 object-cover shadow-lg"
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

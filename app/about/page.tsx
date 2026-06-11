@@ -10,14 +10,8 @@ const technologies = {
     "SHADCN",
     "GSAP",
   ],
-  backend: [
-    "Node.js",
-    "Express.js",
-    "mongoose",
-    "prisma",
-    "rest apis",
-    "postgresql",
-  ],
+  backend: ["Node.js", "Express.js", "prisma", "mongoose", "bull mq", ,],
+  database: ["mongodb", "postgresql", "redis"],
 };
 const AboutPage = () => {
   return (
@@ -35,7 +29,7 @@ const AboutPage = () => {
           A Full Stack Developer From Bangladesh. I have 1+ years of hands-on
           experience in the industry. I am passionate about building
           user-friendly and efficient software solutions. I am not perfect
-          'cause I never stopped learning.
+          &apos;cause I never stopped learning.
         </p>
         <div className="flex justify-between items-start w-full">
           <div className="flex items-start gap-20">
@@ -51,6 +45,14 @@ const AboutPage = () => {
               <p>(Backend)</p>
               <div>
                 {technologies.backend.map((item: string, index: number) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </div>
+            </div>
+            <div className="text-sm space-y-2 uppercase">
+              <p>(Database)</p>
+              <div>
+                {technologies.database.map((item: string, index: number) => (
                   <p key={index}>{item}</p>
                 ))}
               </div>

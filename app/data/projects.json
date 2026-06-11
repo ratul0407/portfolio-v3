@@ -17,10 +17,26 @@
         "image_2": "/plantlife-checkout.jpg"
       },
       "videos": {
-        "full-demo": "/plantlife-video.mp4",
-        "demo_1": "/plantlife-m-demo1.mp4",
-        "demo_2": "/plantlife-m-demo2.mp4",
-        "demo_3": "/plantlife-m-demo3.mp4"
+        "full-demo": {
+          "webm": "/plantlife-video.webm",
+          "mp4": "/plantlife-video-small.mp4",
+          "poster": "/plantlife-video-thumbnail.jpg"
+        },
+        "demo_1": {
+          "webm": "/plantlife-m-demo1.webm",
+          "mp4": "/plantlife-m-demo1-small.mp4",
+          "poster": "/plantlife-m-demo1-thumbnail.jpg"
+        },
+        "demo_2": {
+          "webm": "/plantlife-m-demo2.webm",
+          "mp4": "/plantlife-m-demo2-small.mp4",
+          "poster": "/plantlife-m-demo2-thumbnail.jpg"
+        },
+        "demo_3": {
+          "webm": "/plantlife-m-demo3.webm",
+          "mp4": "/plantlife-m-demo3-small.mp4",
+          "poster": "/plantlife-m-demo3-thumbnail.jpg"
+        }
       }
     },
     {
@@ -40,10 +56,26 @@
         "image_2": "/map-parcel.jpg"
       },
       "videos": {
-        "full-demo": "/parcel-video.mp4",
-        "demo_1": "/parcel-mobile-demo1.mp4",
-        "demo_2": "/parcel-mobile-demo2.mp4",
-        "demo_3": "/parcel-mobile-demo3.mp4"
+        "full-demo": {
+          "webm": "/parcel-demo.webm",
+          "mp4": "/parcel-demo-small.mp4",
+          "poster": "/parcel-demo-thumbnail.jpg"
+        },
+        "demo_1": {
+          "webm": "/parcel-mobile-demo1.webm",
+          "mp4": "/parcel-mobile-demo1-small.mp4",
+          "poster": "/parcel-mobile-demo1-thumbnail.jpg"
+        },
+        "demo_2": {
+          "webm": "/parcel-mobile-demo2.webm",
+          "mp4": "/parcel-mobile-demo2-small.mp4",
+          "poster": "/parcel-mobile-demo2-thumbnail.jpg"
+        },
+        "demo_3": {
+          "webm": "/parcel-mobile-demo3.webm",
+          "mp4": "/parcel-mobile-demo3-small.mp4",
+          "poster": "/parcel-mobile-demo3-thumbnail.jpg"
+        }
       }
     }
   ]

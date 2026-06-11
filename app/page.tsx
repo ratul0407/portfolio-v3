@@ -39,7 +39,7 @@ const Home = () => {
         setIndex(index + 1);
       },
 
-      400
+      400,
     );
 
     return () => clearTimeout(timer);
@@ -77,7 +77,7 @@ const Home = () => {
             duration: 1,
             ease: "power2.inOut",
           },
-          "-=1"
+          "-=1",
         )
         .to(".loader", {
           display: "none",
@@ -116,9 +116,9 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="p-10 overflow-hidden flex flex-col items-start min-h-screen justify-evenly ">
+      <div className="container mx-auto p-10 overflow-hidden flex flex-col items-start min-h-screen justify-evenly ">
         <div className="items-center justify-center ">
-          <h1 className="heading w-full text-3xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium">
+          <h1 className="heading w-full text-3xl md:max-w-[20ch] font-light font-canela leading-tight lg:text-6xl lg:max-w-max lg:font-medium 2xl:text-7xl 2xl:font-normal">
             Hi I am Ratul. A full Stack Developer from{" "}
             <span className="text-[#386641]">Bangladesh.</span> A programmer who
             loves to build things and learn new things.
